@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ChartComponent from './ChartComponent';
 import CryptoSelector from './CryptoSelector';
 import IntervalSelector from './IntervalSelector';
+import './App.css';
 
 const App = () => {
   const [selectedSymbol, setSelectedSymbol] = useState('ethusdt');
   const [interval, setInterval] = useState('1m');
   const [candlestickData, setCandlestickData] = useState({});
-  
-  // Store historical data in memory or local storage
+
   useEffect(() => {
     const storedData = localStorage.getItem(selectedSymbol);
     if (storedData) {
@@ -30,7 +30,7 @@ const App = () => {
         };
         setCandlestickData((prevData) => {
           const updatedData = [...(prevData[selectedSymbol] || []), newCandle];
-          localStorage.setItem(selectedSymbol, JSON.stringify(updatedData)); // Save to local storage
+          localStorage.setItem(selectedSymbol, JSON.stringify(updatedData)); 
           return { ...prevData, [selectedSymbol]: updatedData };
         });
       }

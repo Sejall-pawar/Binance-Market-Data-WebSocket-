@@ -1,12 +1,8 @@
 import React from 'react';
 
 const CryptoSelector = ({ setSelectedSymbol }) => {
-  const handleSelection = (event) => {
-    setSelectedSymbol(event.target.value);
-  };
-
   return (
-    <select onChange={handleSelection}>
+    <select onChange={(e) => setSelectedSymbol(e.target.value)}>
       <option value="ethusdt">ETH/USDT</option>
       <option value="bnbusdt">BNB/USDT</option>
       <option value="dotusdt">DOT/USDT</option>
