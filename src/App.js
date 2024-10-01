@@ -8,7 +8,7 @@ const App = () => {
   const [selectedSymbol, setSelectedSymbol] = useState('ethusdt');
   const [interval, setInterval] = useState('1m');
   const [candlestickData, setCandlestickData] = useState({});
-
+  
   useEffect(() => {
     const storedData = localStorage.getItem(selectedSymbol);
     if (storedData) {
@@ -40,10 +40,12 @@ const App = () => {
   }, [selectedSymbol, interval]);
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Binance Market Data</h1>
-      <CryptoSelector setSelectedSymbol={setSelectedSymbol} />
-      <IntervalSelector setInterval={setInterval} />
+      <div className="selectors-container">
+        <CryptoSelector setSelectedSymbol={setSelectedSymbol} />
+        <IntervalSelector setInterval={setInterval} />
+      </div>
       <ChartComponent data={candlestickData[selectedSymbol] || []} />
     </div>
   );

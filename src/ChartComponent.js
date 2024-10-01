@@ -23,9 +23,9 @@ const ChartComponent = ({ data }) => {
   const options = {
     scales: {
       x: {
-        type: 'time', // Use 'time' for the x-axis
+        type: 'time', 
         time: {
-          unit: 'minute', // or 'hour', 'day', etc. based on your needs
+          unit: 'minute', 
         },
         title: {
           display: true,
